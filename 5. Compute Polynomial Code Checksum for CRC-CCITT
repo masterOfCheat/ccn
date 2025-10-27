@@ -38,19 +38,21 @@ for(i=0;i<length;i++)
 printf(" %d",result[i]);
 getch();
 printf("\nEnter the stream for which CRC has to be checked : ");
- i=0;
- while((ch=getche())!='\r')
- array[i++]=ch-'0';
+  i=0;
+  while((ch=getche())!='\r')
+     array[i++]=ch-'0';
  length=i;
+
  for (i=0;i<length;i++)
- result[i]=array[i];
+    result[i]=array[i];
  calcrc();
+
  printf("\nChecksum is : ");
  for (i=0;i<length;i++)
  {
- printf("%d",result[i]);
- if(result[i]!=0)
- flag=1;
+   printf("%d",result[i]);
+   if(result[i]!=0)
+   flag=1;
  }
  if(flag)
  printf("\n error in transmission\n");
