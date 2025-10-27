@@ -14,29 +14,35 @@ printf(“\n enter the key string:”);
 gets(key);
 ilen=strlen(inp);
 klen=strlen(key);
+
 for(t=0;t<ilen;t++)
- if(inp[t]==’ ‘)
- inp[t]=’-‘;
+  if(inp[t]==’ ‘)
+  inp[t]=’-‘;
+
 while(ilen%klen)
 inp[ilen++]=’-‘;
+
 for(ch=’A’;ch<=’Z’;ch++)
- for(j=0;j<=klen;j++)
- if(toupper(key[j])==ch)
- for(i=j;i<ilen;i+=klen)
- out[k++]=inp[i];
+  for(j=0;j<=klen;j++)
+   if(toupper(key[j])==ch)
+     for(i=j;i<ilen;i+=klen)
+        out[k++]=inp[i];
 out[k]=’\0’;
 printf(“\n the encrypted output is : %s’, out); 
 printf(“enter the encrypted message\n”);
 gets(enc);
+
 for(ch=’A’,k=0; ch<=’Z’;ch++)
  for(j=0;j<klen;j++)
- if(toupper(key[j])==ch)
- for(i=j;i<ilen;i+=klen)
- dec[i]=enc[k++];
+   if(toupper(key[j])==ch)
+    for(i=j;i<ilen;i+=klen)
+      dec[i]=enc[k++];
 dec[k]=’\0’;
+
 for(t=0;t<ilen;t++)
- if(dec[t]==’-‘)
- dec[t]=’ ‘;
+  if(dec[t]==’-‘)
+    dec[t]=’ ‘;
+
 printf(“\n \n the decrypted output is : %s”, dec);
 getch();
 } 
