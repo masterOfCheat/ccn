@@ -4,23 +4,23 @@
 void main()
 {
 
-char ch, array[50]={"01111110"},recd_array[50];
- int counter=0,i=8,j,k;
- clrscr();
-printf("Enter the original data stream for bit stuffing : \n");
- while((ch=getche())!='\r')
- {
- if (ch=='1')
- ++counter; 
- else
- counter=0;
- array[i++]=ch;
- if (counter==5) /* If 5 ones are encountered append a zero */
- {
- array[i++]='0';
- counter=0;
- }
- }
+   char ch, array[50]={"01111110"},recd_array[50];
+   int counter=0,i=8,j,k;
+   clrscr();
+   printf("Enter the original data stream for bit stuffing : \n");
+   while((ch=getche())!='\r')
+   {
+      if (ch=='1')
+            ++counter; 
+      else
+          counter=0;
+          array[i++]=ch;
+          if (counter==5) /* If 5 ones are encountered append a zero */
+          {
+            array[i++]='0';
+            counter=0;
+           }
+       }
 array[i]=’\0’;
 strcat(array,"01111110");
  array[i+8]=’\0’;
@@ -30,18 +30,18 @@ printf("\nThe stuffed data stream is : %s \n",array);
  printf("\nThe destuffed data stream is : \n");
  for (j=8,k=0;j<(strlen(array)-8);++j)
  {
- if (array[j]=='1')
- ++counter;
- else
- counter=0;
- recd_array[k++]=array[j];
+    if (array[j]=='1')
+        ++counter;
+    else
+       counter=0;
+    recd_array[k++]=array[j];
 
- if (counter==5) /* If five ones appear, delete the following zero */
- {
- ++j;
- counter=0;
- }
- }
+    if (counter==5) /* If five ones appear, delete the following zero */
+    {
+     ++j;
+     counter=0;
+    }
+  }
 recd_array[k]=’\0’;
 printf(“ the destuffed data stream is %s”,recd_array);
 getch();
